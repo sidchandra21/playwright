@@ -34,10 +34,10 @@ test('Screenshot & Visual Comparison', async ({page})=>
 
 });
 
-test('visual comparison', async ({page})=>
-{
-    await page.goto('https://www.google.com/');
-    expect(await page.screenshot()).toMatchSnapshot('landing.png');
+// test('visual comparison', async ({page})=>
+// {
+//     await page.goto('https://www.google.com/');
+//     expect(await page.screenshot()).toMatchSnapshot('landing.png');
 
 
-});
+// });

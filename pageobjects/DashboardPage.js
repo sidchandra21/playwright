@@ -9,7 +9,7 @@ class DashboardPage {
 
     async searchProductAddCart(productname) {
 
-        await this.Products.first().waitFor();
+        await this.Products.first().waitFor({ state: 'visible' });
         const titles = await this.cardTitles.allTextContents();
         console.log(titles);
 
@@ -27,7 +27,7 @@ class DashboardPage {
 
     async navigateToCart() {
         await this.cart.click();
-        await this.page.locator('div li').first().waitFor();
+        await this.page.locator('div li').first().waitFor({ state: 'visible' });
     }
 }
 

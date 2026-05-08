@@ -42,7 +42,11 @@ test('Event Booking', async ({ page }) =>
     await page.getByTestId('nav-events').click();
     const targetCard = page.getByRole('article').filter({has: page.getByRole('heading', { name: eventTitle })});
     await expect(targetCard).toBeVisible( {timeout: 5000} );
-    const seatsBeforeBooking = await targetCard.locator('.text-xs.font-semibold.text-emerald-600').innerText();
+    const seatCountLocator = targetCard.locator('.text-xs.font-semibold.text-emerald-600').first();
+    const seatsBeforeBooking = await seatCountLocator.innerText();
+    const beforeMatch = seatsBeforeBooking.match(/\d+/);
+    const countBefore = beforeMatch ? parseInt(beforeMatch[0], 10) : 0;
+    const expectedCountAfter = countBefore - 1;
     await targetCard.getByTestId('book-now-btn').click();
 //Event booking end
 
@@ -76,8 +80,8 @@ test('Event Booking', async ({ page }) =>
     await expect(page.getByTestId('event-card').nth(0)).toBeVisible({timeout: 5000});
     
     await expect(page.getByText(eventTitle)).toBeVisible();
-    const seatsAfterBooking : string = await targetCard.locator('.text-xs.font-semibold.text-emerald-600').first().innerText();
-    await expect(parseInt(seatsAfterBooking)).toBe(parseInt(seatsBeforeBooking) - 1);
+    const seatCountLocatorAfter = targetCard.locator('.text-xs.font-semibold.text-emerald-600').first();
+    await expect(seatCountLocatorAfter).toHaveText(new RegExp(`${expectedCountAfter} seats available`));
 //Verify seat count is reduced end
 });
 //change a bit
