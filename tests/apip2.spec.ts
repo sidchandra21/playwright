@@ -1,5 +1,5 @@
 import { test, expect, Page, Locator } from '@playwright/test';
-const emailID: string = "zinkazama21@gmail.com";
+const emailID: string = "jivijiy646@deapad.com";
 const productname: string = "ZARA COAT 3";
 let webContext: any;
 
@@ -15,7 +15,7 @@ test.beforeAll(async ({ browser }) => {
     console.log(await page.title());
     await userEmail.fill(""); //wipes off the value in the field
     await userEmail.fill(emailID);
-    await page.locator('#userPassword').fill('Learning21')
+    await page.locator('#userPassword').fill('Kuchbhi1!')
     await signIn.click();
     console.log(await page.locator('.toast-title').textContent());
     await expect(page.locator('.toast-title')).toContainText('Login Successfully');
