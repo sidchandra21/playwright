@@ -66,7 +66,7 @@ test ('Place Order', async ()=>
     }
     // await page.pause();
    await page.locator('[routerlink*=cart]').click();
-   await page.locator('div li').first().waitFor();
+   await page.locator('div li').first().waitFor({ state: 'visible' });
    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
     expect(bool).toBeTruthy();
 
