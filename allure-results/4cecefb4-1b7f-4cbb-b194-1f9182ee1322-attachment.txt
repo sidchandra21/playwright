@@ -1,0 +1,4 @@
+Let's Shop
+[ 'ADIDAS ORIGINAL', 'ZARA COAT 3', 'iphone 13 pro' ]
+ | 69e626b4f86ba51a6576333a | 
+total entries: 7

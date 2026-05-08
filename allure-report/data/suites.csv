@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","7375","@Web Client App Test - ZARA COAT 3","","2026-04-16","passed","2026-04-16","","ClientappPageobject.spec.js","",""
+"","6536","First Playwright test","","2026-04-20","passed","2026-04-20","","Clientapp.spec.js","",""
+"","5942","@Web Client App Test - ADIDAS ORIGINAL","","2026-04-16","passed","2026-04-16","","ClientappPageobject.spec.js","",""
+"","2062","@Web First Playwright test","","2026-04-16","passed","2026-04-16","","UIBasicstest.spec.js","",""
