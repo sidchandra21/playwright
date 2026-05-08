@@ -80,3 +80,4 @@ test('Event Booking', async ({ page }) =>
     await expect(parseInt(seatsAfterBooking)).toBe(parseInt(seatsBeforeBooking) - 1);
 //Verify seat count is reduced end
 });
+//change a bit
