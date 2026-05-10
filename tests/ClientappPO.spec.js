@@ -4,11 +4,11 @@ const { DashboardPage } = require('../pageobjects/DashboardPage');
 const { CheckOut } = require('../pageobjects/CheckOut');
 const { customtest } = require('../util/test-base');
 
-const placeorderTestData = require('../util/placeorderTestData.json');
+const { testData } = require('../util/testData');
 // structuredClone is available in Node.js 17+
-const testData = structuredClone(placeorderTestData);
+const dataArray = structuredClone(testData.users);
 
-for (const data of testData) {
+for (const data of dataArray) {
     test(`@Web Client App Test - ${data.productname}`, async ({ page }) => {
         const username = data.username;
         const password = data.password;
