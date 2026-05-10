@@ -7,9 +7,9 @@ interface TestDataForOrder {
 export const customtest = baseTest.extend<{testDataForOrder : TestDataForOrder}>(
     {
         testDataForOrder :  {
-            username: "sid.chandra21@outlook.com",
-            password: "Learning22",
-            productname: "ADIDAS ORIGINAL"
+            username: "jivijiy646@deapad.com",
+            password: "Kuchbhi1!",
+            productname: "iphone 13 pro"
         }
 
 

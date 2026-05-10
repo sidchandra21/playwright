@@ -10,6 +10,9 @@ export class APiUtils {
         const loginResponse = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", {
             data: this.loginPayLoad
         }); // 200, 201
+        if (!loginResponse.ok()) {
+            throw new Error(`Login failed with status ${loginResponse.status()}: ${await loginResponse.text()}`);
+        }
         const loginResponseJson = await loginResponse.json();
         const token = loginResponseJson.token;
         console.log(token);
@@ -27,6 +30,10 @@ export class APiUtils {
             }
         });
  
+        if (!orderResponse.ok()) {
+            throw new Error(`Order creation failed with status ${orderResponse.status()}`);
+        }
+        
         const orderResponseJson = await orderResponse.json();
         console.log(orderResponseJson);
         const orderId = orderResponseJson.orders[0];
