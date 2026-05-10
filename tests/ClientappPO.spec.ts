@@ -5,13 +5,12 @@ import { CheckOut } from '../pageobjects_ts/CheckOut';
 import { customtest } from '../util_js/test-base';
 
 
-import placeorderTestData from '../util/placeorderTestData.json';
-const testData = structuredClone(placeorderTestData);
+import { testData } from '../util_js/testData';
 
-for (const data of testData) {
+for (const data of testData.users) {
 test(`@Web Client App Test - ${data.productname}`, async ({page}) => {
-    const username  : string = data.username;
-    const password : string = data.password;
+    const username = data.username;
+    const password = data.password;
     const productname : string = data.productname;
     const firstDropdown = page.locator('select.input.ddl').first();
     const secondDropdown : Locator = page.locator('select.input.ddl').nth(1);
