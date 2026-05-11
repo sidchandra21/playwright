@@ -65,9 +65,10 @@ test ('Banner Not Visible', async ({ page }) => {
 
     await loginAndGoToEvents(page);
     // await page.pause();
-    await expect(page.locator('[data-testid="event-card"]').first()).toBeVisible();
-    const EventCount : number = await page.locator('[data-testid="event-card"]').count();
-    await expect(EventCount).toBe(4);
+    // await expect(page.locator('[data-testid="event-card"]').first()).toBeVisible();
+    // const EventCount : number = await page.locator('[data-testid="event-card"]').count();
+    // await expect(EventCount).toHaveCount(4);
+    await expect(page.locator('[data-testid="event-card"]')).toHaveCount(4);
     const banner : Locator = page.getByText(/sandbox holds up to/i);
     await expect(banner).toBeHidden();
 
