@@ -1,9 +1,12 @@
 import { test, expect, BrowserContext } from '@playwright/test';
-let webContext : BrowserContext;
+let webContext: BrowserContext;
 
-test.beforeAll(async ({browser}) => {
+test.beforeEach(async ({ browser }) => {
+    webContext = await browser.newContext({ storageState: 'state.json' });
+});
 
-    webContext =  await browser.newContext({storageState: 'state.json'});
+test.afterEach(async () => {
+    await webContext.close();
 });
 
 
