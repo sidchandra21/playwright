@@ -1,7 +1,7 @@
-import { test, expect, Page, Locator } from '@playwright/test';
+import { test, expect, Page, Locator, BrowserContext } from '@playwright/test';
 const emailID: string = "jivijiy646@deapad.com";
 const productname: string = "ZARA COAT 3";
-let webContext: any;
+let webContext: BrowserContext;
 
 
 test.beforeAll(async ({ browser }) => {
@@ -21,8 +21,16 @@ test.beforeAll(async ({ browser }) => {
     await expect(page.locator('.toast-title')).toContainText('Login Successfully');
     await page.waitForLoadState('networkidle');
     await context.storageState({ path: 'state.json' });
-    webContext = await browser.newContext({ storageState: 'state.json' });
+    await context.close();
 
+});
+
+test.beforeEach(async ({ browser }) => {
+    webContext = await browser.newContext({ storageState: 'state.json' });
+});
+
+test.afterEach(async () => {
+    await webContext.close();
 });
 
 test('Login', async () => {
